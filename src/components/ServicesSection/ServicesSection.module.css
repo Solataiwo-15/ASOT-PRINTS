@@ -1,0 +1,42 @@
+/* src/components/ServicesSection/ServicesSection.module.css */
+.section {
+  padding: var(--space-xxl) 0;
+  background-color: white;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center; /* Center all text content in the header */
+}
+
+.tag {
+  color: var(--text-gray);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.title {
+  font-size: 45px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+  line-height: 1.2;
+  margin-bottom: var(--space-lg);
+}
+
+.description {
+  color: var(--text-gray);
+  max-width: 700px; /* Constrain width for readability */
+  margin: 0 auto var(--space-xl); /* Center the block and add bottom margin */
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  text-align: left; /* Reset text align for cards */
+}

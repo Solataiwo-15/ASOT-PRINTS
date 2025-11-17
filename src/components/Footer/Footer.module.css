@@ -1,0 +1,59 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+  background-color: var(--background-dark);
+  color: #E0E0E0;
+  padding-top: 64px;
+}
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* --- Main Content --- */
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding-bottom: 20px;
+}
+
+.leftColumn { flex-basis: 50%; }
+.rightColumn { flex-basis: 40%; }
+.logo { height: 32px; margin-bottom: var(--space-lg); }
+.tagline { margin-bottom: 25px; max-width: 350px; line-height: 1.6; font-size: 14px; }
+.footerNav { display: flex; flex-wrap: wrap; gap: var(--space-lg); margin-bottom: 16px; font-size: 14px; }
+.footerNav a { color: #E0E0E0; font-weight: 500; }
+.socialIcons { display: flex; gap: var(--space-md); }
+.socialIcons a { display: block; background-color: #2C2C2C; border-radius: 50%; padding: 8px; }
+
+.socialIcons img {
+  width: 18px;  /* Or whatever size matches the design */
+  height: 18px;
+  display: block; /* Removes any extra space below the image */
+}
+
+.newsletterTitle { margin-bottom: var(--space-lg); font-weight: 500; font-size: 14px; text-align: end;}
+.newsletterForm { display: flex; gap: var(--space-sm); }
+.newsletterForm input {
+  flex-grow: 1;
+  border: 1px solid #444;
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  padding: 5px 10px;
+  font-family: var(--font-family-sans);
+  color: var(--text-dark);
+}
+
+/* --- Bottom Bar --- */
+.bottomBar {
+  border-top: 1px solid #333;
+  padding: var(--space-lg) 0;
+  font-size: 14px;
+  color: var(--text-gray);
+}
+.bottomBar > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

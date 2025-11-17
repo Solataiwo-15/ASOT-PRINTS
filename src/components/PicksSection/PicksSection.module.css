@@ -1,0 +1,32 @@
+/* src/components/PicksSection/PicksSection.module.css */
+.section {
+  padding: var(--space-xxl) 0;
+  background-color: white;
+}
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+.title {
+  font-size: 50px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+}
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-gray);
+  margin-top: var(--space-sm);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-lg);
+}

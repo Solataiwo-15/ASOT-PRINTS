@@ -1,0 +1,6 @@
+/* src/components/Logo/Logo.module.css */
+.logo img {
+  height: 33px; /* Control the size of the logo */
+  width: auto;
+  display: block;
+}

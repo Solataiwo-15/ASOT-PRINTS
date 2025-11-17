@@ -1,0 +1,54 @@
+/* src/components/ExcellenceSection/ExcellenceSection.module.css */
+.section {
+  background-color: #F0F8FF; /* Light Alice Blue background */
+  padding: var(--space-xxl) 0;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  gap: 60px; /* Wider gap */
+}
+
+/* Left Column */
+.leftColumn {
+  flex-basis: 50%;
+}
+
+.tag {
+  color: var(--primary-red);
+  font-weight: 700;
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-md); /* Space between tag and the content below */
+}
+
+.title {
+  margin-bottom: var(--space-lg);
+  font-size: 45px;
+  font-weight: 900;
+  line-height: 1.6;
+  color: var(--text-dark-blue);
+}
+
+.description {
+  color: var(--text-gray);
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: var(--space-xl);
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Right Column */
+.rightColumn {
+  flex-basis: 50%;
+}

@@ -1,0 +1,78 @@
+/* src/components/ContactFormSection/ContactFormSection.module.css */
+.section {
+  padding: 70px 0;
+  background-size: cover;
+  background-position: center 20%;
+  position: relative;
+  overflow: hidden; /* Important to contain children */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* This new wrapper is the key to the layout */
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  /* This calculation aligns the start of the content with all other sections */
+  padding-left: calc((100vw - var(--container-width)) / 2 + var(--container-padding));
+  max-width: 100vw;
+}
+
+.textColumn {
+  flex-basis: 45%;
+  flex-shrink: 0; /* Prevents this column from shrinking */
+  color: white;
+  padding-right: 60px; /* Add some space between text and form */
+}
+
+.formColumn {
+  flex-basis: 55%;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 90px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
+}
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: var(--space-lg);
+}
+
+.form {
+  background-color: white;
+  border-radius: 40px 0 0 40px; /* Round corners only on the left side */
+  padding: 50px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  /* Add padding on the right to push content away from the edge */
+  padding-right: 50px;
+}
+
+.formTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+  margin-bottom: 24px;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+  margin-bottom: 24px;
+}
+
+.buttonWrapper {
+  margin-top: var(--space-lg);
+  text-align: left;
+}

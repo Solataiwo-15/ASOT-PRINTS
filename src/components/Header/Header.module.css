@@ -1,0 +1,73 @@
+/* src/components/Header/Header.module.css */
+
+/* The header itself is just a container, no background */
+.header {}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Top Bar Styles */
+.topBar {
+  background-color: var(--background-dark-tint);
+  padding: 24px 0;
+  font-size: var(--font-size-small);
+  color: #BCBBC9; /* A light gray for the text */
+}
+
+.contactInfo, .shippingInfo, .infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.infoItem {
+   gap: var(--space-sm);
+}
+
+.separator {
+  height: 16px;
+  width: 1px;
+  background-color: #BCBBC9;
+}
+
+/* Main Navigation Styles */
+.mainNav {
+  background-color: var(--background-dark);
+  padding: var(--space-md) 0;
+}
+
+.navLinks ul {
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+}
+
+.navLinks a {
+  color: var(--text-light);
+  font-weight: 500;
+  position: relative;
+  padding: 3px 0;
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover,
+.navLinks a.active {
+  color: var(--primary-red);
+}
+
+.navLinks a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Move the line down a bit */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 43px;
+  height: 2px;
+  background-color: var(--primary-red);
+}

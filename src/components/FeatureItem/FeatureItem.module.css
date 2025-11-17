@@ -1,0 +1,29 @@
+/* src/components/FeatureItem/FeatureItem.module.css */
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.iconContainer {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.title {
+  font-size: 1.3rem; /* 20.8px */
+  font-weight: 800;
+  color: var(--text-dark-blue);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  color: var(--text-gray);
+  line-height: 1.7;
+}

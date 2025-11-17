@@ -1,0 +1,37 @@
+/* src/components/Button/Button.module.css */
+
+/* Base button styles */
+.btn {
+  padding:  12px 24px; 
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body); /* 16px */
+  font-weight: 700; /* Bold */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Style for the 'primary' variant */
+.primary {
+  background-color: var(--primary-red);
+  color: var(--text-light); /* White text */
+}
+
+/* Hover and focus states */
+/* .btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+} */
+
+.primary:hover:not(:disabled) {
+  /* We can define a hover color later or just use a filter */
+  filter: brightness(1.1);
+}
+
+/* Disabled state */
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

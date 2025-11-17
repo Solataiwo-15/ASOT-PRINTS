@@ -1,0 +1,77 @@
+/* src/index.css */
+
+/* 1. FONT IMPORT (FROM GOOGLE FONTS) - UPDATED TO MANROPE */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+
+/* 2. CSS VARIABLES (DESIGN TOKENS) */
+:root {
+  /* Colors */
+  --primary-red: #D92424;
+  --primary-blue: #00A3FF;
+  --text-dark: #1A1A1A;
+  --text-light: #FFFFFF;
+  --text-gray: #595959;
+  --background-light: #F8F8F8;
+  --background-dark: #111111;
+  --background-dark-tint: #1D292B;
+  --border-color: #EAEAEA;
+  --primary-red-light: #FF5E5E; /* For the 'ABOUT US' tag */
+  --text-dark-blue: #1A202C;    /* For the main headings in this section */
+
+  /* Typography - UPDATED TO MANROPE */
+  --font-family-sans: 'Manrope', sans-serif;
+
+  /* Font Sizes */
+  --font-size-hero: 4rem; /* 64px */
+  --font-size-h1: 3rem;   /* 48px */
+  --font-size-h2: 2.25rem; /* 36px */
+  --font-size-h3: 1.5rem;  /* 24px */
+  --font-size-body: 1rem;  /* 16px */
+  --font-size-small: 0.875rem; /* 14px */
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 48px;
+  --space-xxl: 96px;
+
+  /* Border Radius */
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Layout */
+  --container-width: 1200px;
+  --container-padding: 1.5rem; /* 24px */
+}
+
+/* 3. GLOBAL RESETS AND DEFAULTS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-family-sans);
+  background-color: var(--background-light);
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

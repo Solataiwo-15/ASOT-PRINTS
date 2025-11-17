@@ -1,0 +1,64 @@
+/* src/components/TrustedPartnerSection/TrustedPartnerSection.module.css */
+.section {
+  padding: var(--space-xxl) 0;
+  background-color: white;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* --- Header Styles (CORRECTED) --- */
+.header {
+  margin-bottom: 70px;
+}
+
+.tag {
+  color: var(--primary-red);
+  font-weight: 700;
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-md); /* Space between tag and the content below */
+}
+
+/* This is the container for the two columns below the tag */
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns the top of the title and description */
+  gap:25px;
+}
+
+.title {
+  flex-basis: 58%; /* Takes up more space on the left */
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--text-dark-blue);
+}
+
+.headerDescription {
+  flex-basis: 40%; /* Takes up less space on the right */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-lg);
+  padding-top: 5px; /* Fine-tune vertical alignment */
+}
+
+.headerDescription p {
+  color: var(--text-gray);
+  line-height: 26px;
+  font-size: 16px;
+  text-align: right;
+}
+
+/* --- Card Grid Styles (Unchanged) --- */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}

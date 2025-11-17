@@ -1,0 +1,56 @@
+/* src/components/HeroSection/HeroSection.module.css */
+
+.hero {
+  background-color: var(--background-light);
+  padding-top: 96px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: flex-start; /* THIS IS THE FIX */
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.heroText {
+  flex-basis: 48%; /* Give text part 45% of the width */
+  flex-shrink: 0; /* Prevent this column from shrinking */
+}
+
+.headline {
+  font-size: 90px;
+  font-weight: 900;
+  line-height: 95%;
+  letter-spacing: 0%;
+  color: var(--text-dark);
+  margin-bottom: var(--space-lg);
+}
+
+.subheadline {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: var(--text-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  font-size: var(--font-size-body);
+  color: var(--text-gray);
+  margin-bottom: var(--space-xl);
+  max-width: 450px;
+}
+
+.heroImage {
+  flex-basis: 52%; /* Give image part 55% of the width */
+}
+
+.heroImage img {
+  width: 100%; /* Make image responsive within its container */
+  height: auto;
+}

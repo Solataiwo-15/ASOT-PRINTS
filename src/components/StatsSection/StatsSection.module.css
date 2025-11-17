@@ -1,0 +1,60 @@
+/* src/components/StatsSection/StatsSection.module.css */
+.section {
+  background-color: #F9F9F9; /* The off-white background */
+  padding: var(--space-xxl) 0;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* --- Upper Div --- */
+.upperDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 100px; /* Large space between upper and lower divs */
+}
+
+/* Upper-Left Div */
+.upperLeft {
+  flex-basis: 40%;
+}
+
+.tag {
+  color: var(--text-gray);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.title {
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+  line-height: 1.2;
+}
+
+/* Upper-Right Div */
+.upperRight {
+  flex-basis: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+}
+
+.description {
+  color: var(--text-gray);
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- Lower Div --- */
+.lowerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

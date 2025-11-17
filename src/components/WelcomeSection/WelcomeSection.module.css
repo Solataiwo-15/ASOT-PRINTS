@@ -1,0 +1,68 @@
+/* src/components/WelcomeSection/WelcomeSection.module.css */
+.section {
+  padding: var(--space-xxl) 0;
+  background-color: white;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Left Column */
+.leftColumn {
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Right Column */
+.rightColumn {
+  flex-basis: 55%;
+}
+
+.tag {
+  color: var(--text-gray);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.title {
+  font-size: 48px; /* Slightly smaller than other page titles */
+  font-weight: 800;
+  line-height: 1.5;
+  font-size: 45px;
+  color: var(--text-dark-blue);
+  margin-bottom: var(--space-lg);
+}
+
+.title .highlight {
+  color: var(--primary-red);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between paragraphs */
+  color: var(--text-gray);
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: var(--space-xl);
+}
+.signature {
+  font-size: 1.1rem;
+  color: var(--text-dark-blue);
+}

@@ -1,0 +1,46 @@
+/* src/components/PageHero/PageHero.module.css */
+.pageHero {
+  /* Increased vertical padding for a more dramatic effect */
+  padding: 165px 0;
+  background-size: contain;
+  /* Adjust position to show the best part of the image. 'center 70%' pulls it down a bit. */
+  /* You can tweak the percentage (e.g., 60%, 80%) to get it perfect with your exact image. */
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+/* The overlay remains the same */
+.pageHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  /* Increased font size for the main title */
+  font-size: 90px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--space-lg); /* Increased margin */
+}
+
+.subtitle {
+  /* Decreased font size for the subtitle */
+  font-size: 24px   ; /* 19.2px */
+  font-weight: 400; /* Lighter font weight */
+}
