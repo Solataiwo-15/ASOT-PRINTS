@@ -1,0 +1,36 @@
+/* src/components/ComingSoon/ComingSoon.module.css */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Takes up most of the vertical screen space */
+  text-align: center;
+  background-color: white;
+  padding: var(--space-xl) 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.icon {
+  color: var(--primary-red);
+  width: 64px;
+  height: 64px;
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  max-width: 500px;
+  line-height: 1.7;
+}

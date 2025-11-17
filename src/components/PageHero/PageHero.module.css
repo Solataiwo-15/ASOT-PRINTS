@@ -1,11 +1,11 @@
 /* src/components/PageHero/PageHero.module.css */
 .pageHero {
   /* Increased vertical padding for a more dramatic effect */
-  padding: 165px 0;
-  background-size: contain;
+  padding: 180px 0;
+  background-size: cover;
   /* Adjust position to show the best part of the image. 'center 70%' pulls it down a bit. */
   /* You can tweak the percentage (e.g., 60%, 80%) to get it perfect with your exact image. */
-  background-position: center;
+  background-position: center 10%;
   color: white;
   position: relative;
 }
@@ -41,6 +41,6 @@
 
 .subtitle {
   /* Decreased font size for the subtitle */
-  font-size: 24px   ; /* 19.2px */
+  font-size: 24px; /* 19.2px */
   font-weight: 400; /* Lighter font weight */
 }
