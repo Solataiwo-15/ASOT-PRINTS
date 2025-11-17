@@ -1,5 +1,5 @@
 // src/pages/AboutPage.tsx
-import React from "react"; // Import React to use JSX fragments and <br />
+
 import PageHero from "../components/PageHero/PageHero";
 import ContentSection from "../components/ContentSection/ContentSection";
 import ExcellenceSection from "../components/ExcellenceSection/ExcellenceSection";

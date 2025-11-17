@@ -1,8 +1,5 @@
 /* src/components/Header/Header.module.css */
 
-/* The header itself is just a container, no background */
-.header {}
-
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
