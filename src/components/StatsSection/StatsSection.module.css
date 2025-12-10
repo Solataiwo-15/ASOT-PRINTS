@@ -1,60 +1,95 @@
-/* src/components/StatsSection/StatsSection.module.css */
+/* src/components/StatsSection/StatsSection.module.css (Updated) */
 .section {
-  background-color: #F9F9F9; /* The off-white background */
+  background-color: #F9F9F9;
   padding: var(--space-xxl) 0;
 }
-
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
-
-/* --- Upper Div --- */
 .upperDiv {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 100px; /* Large space between upper and lower divs */
+  margin-bottom: 100px;
 }
-
-/* Upper-Left Div */
 .upperLeft {
   flex-basis: 40%;
 }
-
 .tag {
   color: var(--text-gray);
   font-weight: 500;
   display: block;
   margin-bottom: var(--space-md);
 }
-
 .title {
   font-size: 52px;
   font-weight: 800;
   color: var(--text-dark-blue);
   line-height: 1.2;
 }
-
-/* Upper-Right Div */
 .upperRight {
   flex-basis: 55%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligns content to the left */
+  align-items: flex-start;
 }
-
 .description {
   color: var(--text-gray);
   line-height: 1.8;
   font-size: 15px;
   margin-bottom: var(--space-lg);
 }
-
-/* --- Lower Div --- */
 .lowerDiv {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  /* Stack the upper div columns */
+  .upperDiv {
+    flex-direction: column;
+    align-items: center; /* Center the content */
+    text-align: center; /* Center the text inside */
+    margin-bottom: 60px; /* Reduce bottom margin */
+    gap: 20px;
+  }
+
+  .desktopOnlyBr {
+  display: none;
+}
+
+  /* Ensure right column items (p, button) are centered */
+  .upperRight {
+    align-items: center;
+  }
+
+  /* Apply your requested font sizes */
+  .tag {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 12px;
+  }
+
+  /* Create the 2x2 grid for the stats */
+  .lowerDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 40px 20px; /* Vertical and horizontal gap */
+  }
 }

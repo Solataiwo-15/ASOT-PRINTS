@@ -2,6 +2,7 @@
 
 // Step 1: Import 'Link' and 'useLocation' from react-router-dom
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
@@ -9,6 +10,8 @@ import MailIcon from "../Icons/MailIcon";
 import PhoneIcon from "../Icons/PhoneIcon";
 import InfoIcon from "../Icons/InfoIcon";
 import styles from "./Header.module.css";
+import HamburgerIcon from "../Icons/HamburgerIcon";
+import CloseIcon from "../Icons/CloseIcon";
 
 // Step 2: Create a data structure for our navigation links for easier mapping
 const navLinks = [
@@ -23,6 +26,10 @@ const Header = () => {
   // Step 3: Get the current location object, which contains the pathname
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className={styles.header}>
@@ -48,32 +55,68 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Navigation (UPDATED) */}
+      {/* Main Navigation (CORRECTED STRUCTURE) */}
       <nav className={styles.mainNav}>
         <div className={styles.container}>
-          <Logo />
-          <div className={styles.navLinks}>
-            <ul>
-              {/* Step 4: Map over the navLinks array to generate links dynamically */}
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  {/* Use the 'Link' component instead of 'a' */}
-                  <Link
-                    to={link.path}
-                    // Conditionally apply the 'active' class
-                    className={currentPath === link.path ? styles.active : ""}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* THIS IS THE CHANGE: Add a wrapper div */}
+          <div className={styles.headerLogo}>
+            <Logo />
           </div>
-          <Button onClick={() => alert("Quote button clicked!")}>
-            Get A Quote
-          </Button>
+
+          {/* This wrapper now contains BOTH mobile and desktop navs */}
+          <div className={styles.navWrapper}>
+            {/* Hamburger Button (Mobile) */}
+            <button className={styles.hamburgerButton} onClick={toggleMenu}>
+              <HamburgerIcon />
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className={styles.desktopNav}>
+              <ul>
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      className={currentPath === link.path ? styles.active : ""}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* THIS IS THE CHANGE: Add a wrapper div */}
+          <div className={styles.headerButton}>
+            <Button onClick={() => alert("Quote button clicked!")}>
+              Get A Quote
+            </Button>
+          </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Panel (no changes here) */}
+      <div
+        className={`${styles.mobileMenu} ${isMenuOpen ? styles.isOpen : ""}`}
+      >
+        <button className={styles.closeButton} onClick={toggleMenu}>
+          <CloseIcon />
+        </button>
+        <ul>
+          {navLinks.map((link) => (
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className={currentPath === link.path ? styles.active : ""}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 };

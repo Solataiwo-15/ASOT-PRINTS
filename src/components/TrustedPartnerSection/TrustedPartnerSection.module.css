@@ -1,64 +1,100 @@
-/* src/components/TrustedPartnerSection/TrustedPartnerSection.module.css */
+/* src/components/TrustedPartnerSection/TrustedPartnerSection.module.css (CORRECTED) */
 .section {
   padding: var(--space-xxl) 0;
   background-color: white;
 }
-
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
-
-/* --- Header Styles (CORRECTED) --- */
 .header {
   margin-bottom: 70px;
 }
-
 .tag {
   color: var(--primary-red);
   font-weight: 700;
   font-size: var(--font-size-small);
   text-transform: uppercase;
   display: block;
-  margin-bottom: var(--space-md); /* Space between tag and the content below */
+  margin-bottom: var(--space-md);
 }
-
-/* This is the container for the two columns below the tag */
 .headerContent {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Aligns the top of the title and description */
-  gap:25px;
+  align-items: flex-start;
+  gap: 25px;
 }
-
 .title {
-  flex-basis: 58%; /* Takes up more space on the left */
+  flex-basis: 58%;
   font-size: 40px;
   font-weight: 800;
   line-height: 1.6;
   color: var(--text-dark-blue);
 }
-
 .headerDescription {
-  flex-basis: 40%; /* Takes up less space on the right */
+  flex-basis: 40%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: var(--space-lg);
-  padding-top: 5px; /* Fine-tune vertical alignment */
+  padding-top: 5px;
 }
-
 .headerDescription p {
   color: var(--text-gray);
   line-height: 26px;
   font-size: 16px;
   text-align: right;
 }
-
-/* --- Card Grid Styles (Unchanged) --- */
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
+}
+
+/*
+ * =========================================
+ * === MEDIA QUERY - FINAL SIMPLE FIX ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+    overflow-x: hidden;
+  }
+  .header, .headerDescription p, .title { text-align: center; }
+  .headerContent, .headerDescription { flex-direction: column; align-items: center; }
+  .title { font-size: 29px; line-height: 1.2; }
+  .headerDescription p {
+    line-height: 1.2;
+    font-size: 13px;
+  }
+  .header {
+    margin-bottom: 30px;
+  }
+  
+  /* --- SIMPLE, ROBUST HORIZONTAL SCROLL --- */
+  .cardGrid {
+    display: flex; /* Use Flexbox for simplicity */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Snap horizontally */
+    
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 30px;
+    
+    /* Bleed and padding trick */
+    margin: 0 calc(-1 * var(--container-padding));
+    padding: 20px var(--container-padding); /* Add padding for shadow and spacing */
+  }
+  
+  .cardGrid::-webkit-scrollbar { display: none; }
+  
+  /* --- This styles EACH CARD inside the scroll container --- */
+  .cardGrid > * {
+    scroll-snap-align: center; /* Snap each card to the center */
+    /* THIS IS THE KEY: Each card is 85% of the screen width */
+    flex: 0 0 85%;
+  }
 }

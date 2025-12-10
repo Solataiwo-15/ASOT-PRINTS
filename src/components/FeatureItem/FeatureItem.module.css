@@ -27,3 +27,22 @@
   color: var(--text-gray);
   line-height: 1.7;
 }
+
+@media (max-width: 768px) {
+  .feature {
+    gap: 21px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .iconContainer {
+    padding: 18px;
+  }
+  
+}

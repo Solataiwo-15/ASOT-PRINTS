@@ -1,10 +1,9 @@
-/* src/components/TestimonialSection/TestimonialSection.module.css */
+/* src/components/TestimonialSection/TestimonialSection.module.css (Updated) */
 .section {
   padding: var(--space-xxl) 0;
-  background-color: white; /* Or #F9F9F9 if you want a slight off-white */
+  background-color: white;
   overflow: hidden;
 }
-
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -13,48 +12,38 @@
   align-items: center;
   gap: 60px;
 }
-
-/* Left Column */
 .leftColumn {
   flex-basis: 40%;
 }
-
 .compositionImage {
   width: 100%;
-  height: 300px;
+  height: auto; /* Changed to auto for responsiveness */
 }
-
-/* Right Column */
 .rightColumn {
   flex-basis: 60%;
 }
-
 .header {
   position: relative;
   margin-bottom: 12px;
 }
-
 .title {
   font-size: 45px;
   font-weight: 800;
   color: var(--text-dark-blue);
 }
-
 .quoteIcon {
   position: absolute;
   top: 0;
   right: 25px;
-  width: 80px; /* Control the size */
+  width: 80px;
 }
-
 .subtitle {
-  font-size: 1.3rem; /* 24px */
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-dark-blue);
   margin-bottom: 15px;
   margin-top: 20px;
 }
-
 .testimonialText {
   color: var(--text-gray);
   line-height: 1.8;
@@ -62,33 +51,139 @@
   max-width: 620px;
   margin-bottom: 20px;
 }
-
 .authorInfo {
   margin-bottom: 20px;
   font-size: 1rem;
 }
-
 .authorName {
   font-weight: 700;
   color: var(--text-dark-blue);
 }
-
 .authorRole {
   color: var(--primary-red);
 }
-
 .controls {
   display: flex;
-  gap: var(--space-md);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
 }
-
 .dot {
-  width: 24px;
+  width: 24px; /* Adjusted size to be more subtle */
   height: 24px;
   border-radius: 50%;
-  background-color: #D9D9D9; /* Inactive color */
+  background-color: #424255;
+}
+.dot.active {
+  width: 28px; /* Larger size for active dot */
+  height: 28px;
+  background-color: var(--text-dark-blue);
+  /* Add the border for the active dot from the design */
+  border: 1px solid #8888FF;
+  box-shadow: 0 0 0 1px #424255;
 }
 
-.dot.active {
-  background-color: var(--text-dark-blue); /* Active color */
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  /* Stack the layout vertically */
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .rightColumn {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .leftColumn {
+    flex-basis: 100%;
+    width: 100%;
+    /* Add these two lines to make the container a flexbox and center its content */
+    display: flex;
+    justify-content: center;
+  }
+
+  .compositionImage {
+  width: 80%;
+  height: auto; /* Changed to auto for responsiveness */
+}
+  
+  /* Center the title and position the quote icon correctly */
+  .header {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .quoteIcon {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 45px;
+  }
+
+  /* Style the new quote card */
+  .quoteCard {
+    background-color: #FFEBEB; /* The light pinkish color */
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left; /* Text inside the card is left-aligned */
+    margin-bottom: 30px;
+    border: 1px solid #FFBCBE;
+  }
+
+  /* Adjustments for content inside the card */
+  .subtitle,
+  .testimonialText,
+  .authorInfo {
+    margin: 0;
+    padding: 0;
+  }
+  .subtitle {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  .testimonialText {
+    margin-bottom: 20px;
+    max-width: 100%; /* Allow text to fill the card */
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .authorName {
+    font-size: 13px;
+  }
+
+  .authorRole {
+    font-size: 13px;
+  }
+
+  /* Center the pagination dots */
+  .controls {
+    justify-content: center;
+  }
+  .dot {
+    width: 23px;
+    height: 23px;
+  }
+  .dot.active {
+    width: 25px;
+    height: 25px;
+    /* Simplified active state for mobile */
+    border: 1px solid #8888FF;
+    box-shadow: 0 0 0 1px #424255;
+  }
 }

@@ -1,4 +1,4 @@
-/* src/components/PicksSection/PicksSection.module.css */
+/* src/components/PicksSection/PicksSection.module.css (Updated) */
 .section {
   padding: var(--space-xxl) 0;
   background-color: white;
@@ -29,4 +29,34 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--space-lg);
+}
+
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  /* Stack and center the header */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  /* --- THIS IS THE KEY FIX: 2-COLUMN GRID --- */
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Change to two columns */
+    gap: 30px 20px; /* Adjust row and column gap */
+  }
 }

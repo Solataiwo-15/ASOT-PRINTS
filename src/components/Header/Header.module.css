@@ -1,5 +1,6 @@
-/* src/components/Header/Header.module.css */
+/* src/components/Header/Header.module.css (FULLY CORRECTED) */
 
+/* --- Base Container --- */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -9,62 +10,149 @@
   align-items: center;
 }
 
-/* Top Bar Styles */
+/* --- Top Bar --- */
 .topBar {
   background-color: var(--background-dark-tint);
   padding: 24px 0;
   font-size: var(--font-size-small);
-  color: #BCBBC9; /* A light gray for the text */
+  color: #BCBBC9;
 }
-
 .contactInfo, .shippingInfo, .infoItem {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-}
+} 
+.infoItem { gap: var(--space-sm); }
+.separator { height: 16px; width: 1px; background-color: #BCBBC9; }
 
-.infoItem {
-   gap: var(--space-sm);
-}
-
-.separator {
-  height: 16px;
-  width: 1px;
-  background-color: #BCBBC9;
-}
-
-/* Main Navigation Styles */
+/* --- Main Navigation --- */
 .mainNav {
   background-color: var(--background-dark);
   padding: var(--space-md) 0;
 }
+.navWrapper { flex-grow: 1; display: flex; justify-content: center; }
 
-.navLinks ul {
-  display: flex;
-  list-style-type: none;
-  gap: 30px;
-}
-
-.navLinks a {
+/* --- Desktop Nav --- */
+.desktopNav ul { display: flex; list-style-type: none; gap: 30px; }
+.desktopNav a {
   color: var(--text-light);
   font-weight: 500;
   position: relative;
   padding: 3px 0;
   transition: color 0.2s ease;
 }
-
-.navLinks a:hover,
-.navLinks a.active {
+.desktopNav a:hover,
+.desktopNav a.active {
   color: var(--primary-red);
 }
-
-.navLinks a.active::after {
+.desktopNav a.active::after {
   content: '';
   position: absolute;
-  bottom: -2px; /* Move the line down a bit */
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
   width: 43px;
   height: 2px;
   background-color: var(--primary-red);
+}
+
+/* --- Hamburger Button --- */
+.hamburgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Mobile Menu Panel --- */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  padding: 60px 20px 20px 20px;
+}
+.mobileMenu.isOpen { transform: translateX(0); }
+.mobileMenu ul { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.mobileMenu a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c1c1c1;
+  text-decoration: none;
+  position: relative;
+  padding: 5px 0;
+}
+.mobileMenu a.active { color: var(--text-dark-blue); }
+.mobileMenu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-red);
+}
+.closeButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 900px) {
+  /* --- Hide Desktop Nav, Show Hamburger --- */
+  .desktopNav { display: none; }
+  .hamburgerButton { display: block; }
+
+  /* --- Re-align Main Nav Items --- */
+  .mainNav .container { justify-content: space-between; }
+  .navWrapper { flex-grow: 0; justify-content: flex-start; }
+
+  /* CORRECTED: Target the new wrapper for ordering */
+  .headerLogo { order: 2; }
+  .navWrapper { order: 1; }
+  .headerButton { order: 3; }
+
+  /* --- Simplify Top Bar --- */
+  .topBar .container {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .topBar {
+    font-size: 12px;
+
+  }
+
+  .contactInfo {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* --- Styles for the mobile button --- */
+  .headerButton > button {
+    padding: 8px 16px;
+    font-size: 11.5px;
+  }
+
+  /*
+  * === NEW STYLES FOR THE MOBILE LOGO ===
+  */
+  /* Target the img tag inside our new logo wrapper */
+  .headerLogo img {
+    height: 23px; /* Or your desired smaller size */
+  }
 }

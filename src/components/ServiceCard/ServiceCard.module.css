@@ -1,20 +1,31 @@
-/* src/components/ServiceCard/ServiceCard.module.css */
+/* src/components/ServiceCard/ServiceCard.module.css (FINAL, NO-NONSENSE VERSION) */
 .card {
   display: flex;
   flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  /* This ensures the card itself doesn't shrink or grow unexpectedly */
+  flex-shrink: 0;
 }
 
 .imageContainer {
-  background-color: #F0F0F0; /* Light gray background for image */
+  background-color: #F0F0F0;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: var(--space-lg);
+  /* --- THIS IS THE KEY FIX FOR IMAGE SIZE --- */
+  aspect-ratio: 4 / 3; /* Enforce a 4:3 aspect ratio for all images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .imageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures image fills the container without distortion */
 }
 
 .title {
@@ -28,8 +39,10 @@
 .description {
   color: var(--text-gray);
   font-size: 14px;
-  line-height: 26px;
+  line-height: 1.6; /* Adjusted for better wrapping */
   margin-bottom: var(--space-md);
+  /* Allow the description to grow to push the link down */
+  flex-grow: 1;
 }
 
 .learnMoreLink {
@@ -39,4 +52,13 @@
   color: var(--primary-red);
   font-weight: 700;
   font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    text-align: left;
+  }
+  .learnMoreLink {
+    justify-content: left;
+  }
 }

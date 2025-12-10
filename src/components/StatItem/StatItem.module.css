@@ -1,17 +1,37 @@
-/* src/components/StatItem/StatItem.module.css */
+/* src/components/StatItem/StatItem.module.css (Updated) */
 .statItem {
   text-align: left;
 }
-
 .value {
   font-size: 56px;
   font-weight: 800;
   color: var(--text-dark-blue);
   display: block;
 }
-
 .label {
   font-size: var(--font-size-body);
   color: var(--text-gray);
   margin-top: var(--space-sm);
+}
+
+/*
+ * =======================================
+ * === MEDIA QUERY FOR MOBILE STYLES ===
+ * =======================================
+ */
+@media (max-width: 768px) {
+  /* Center the text within each stat item */
+  .statItem {
+    text-align: center;
+  }
+
+  /* Reduce the font size of the number */
+  .value {
+    font-size: 36px;
+  }
+
+  /* Reduce the font size of the label */
+  .label {
+    font-size: 14px;
+  }
 }

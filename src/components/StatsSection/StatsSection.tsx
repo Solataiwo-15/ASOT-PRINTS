@@ -20,7 +20,7 @@ const StatsSection = () => {
           <div className={styles.upperLeft}>
             <span className={styles.tag}>Statistic</span>
             <h2 className={styles.title}>
-              Asot <br /> in Number
+              Asot <br className={styles.desktopOnlyBr} /> in Number
             </h2>
           </div>
           {/* Upper-Right Div */}

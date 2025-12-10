@@ -22,13 +22,11 @@ const CategorySection = () => {
         <h2 className={styles.title}>Category</h2>
         <div className={styles.tagsContainer}>
           {categories.map((category) => (
-            // *** THIS IS THE UPDATED PART ***
-            // We now render the tag and the icon for every single category
-            // without any conditions.
-            <React.Fragment key={category}>
+            // This wrapper for each item is crucial
+            <div className={styles.tagItem} key={category}>
               <button className={styles.categoryTag}>{category}</button>
               <SparkleIcon />
-            </React.Fragment>
+            </div>
           ))}
         </div>
       </div>

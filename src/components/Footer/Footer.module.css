@@ -1,4 +1,4 @@
-/* src/components/Footer/Footer.module.css */
+/* src/components/Footer/Footer.module.css (Updated) */
 .footer {
   background-color: var(--background-dark);
   color: #E0E0E0;
@@ -9,15 +9,12 @@
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
-
-/* --- Main Content --- */
 .mainContent {
   display: flex;
   justify-content: space-between;
   gap: var(--space-xl);
   padding-bottom: 20px;
 }
-
 .leftColumn { flex-basis: 50%; }
 .rightColumn { flex-basis: 40%; }
 .logo { height: 32px; margin-bottom: var(--space-lg); }
@@ -26,14 +23,8 @@
 .footerNav a { color: #E0E0E0; font-weight: 500; }
 .socialIcons { display: flex; gap: var(--space-md); }
 .socialIcons a { display: block; background-color: #2C2C2C; border-radius: 50%; padding: 8px; }
-
-.socialIcons img {
-  width: 18px;  /* Or whatever size matches the design */
-  height: 18px;
-  display: block; /* Removes any extra space below the image */
-}
-
-.newsletterTitle { margin-bottom: var(--space-lg); font-weight: 500; font-size: 14px; text-align: end;}
+.socialIcons img { width: 18px; height: 18px; display: block; }
+.newsletterTitle { margin-bottom: var(--space-lg); font-weight: 500; font-size: 14px; text-align: end; }
 .newsletterForm { display: flex; gap: var(--space-sm); }
 .newsletterForm input {
   flex-grow: 1;
@@ -44,8 +35,6 @@
   font-family: var(--font-family-sans);
   color: var(--text-dark);
 }
-
-/* --- Bottom Bar --- */
 .bottomBar {
   border-top: 1px solid #333;
   padding: var(--space-lg) 0;
@@ -56,4 +45,79 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 60px;
+  }
+  
+  /* 1. Stack the main two columns */
+  .mainContent {
+    flex-direction: column;
+    align-items: center; /* Center the columns */
+    text-align: center; /* Center all text within */
+    gap: 40px; /* Increase gap for vertical stacking */
+  }
+
+  .logo { 
+    height: 38px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 400px; /* Give a max-width to the content for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tagline {
+    font-size: 15px;
+  }
+  /* 2. Center the content within the columns */
+  .footerNav {
+    justify-content: center;
+    gap: 15px; /* Center the nav links */
+  }
+  .socialIcons {
+    justify-content: center; /* Center the social icons */
+  }
+  .newsletterTitle {
+    text-align: center; /* Override the desktop 'text-align: end' */
+  }
+  .newsletterForm {
+    width: 100%;
+  }
+
+  /* Add a separator line between main content and newsletter */
+  .rightColumn {
+    padding-top: 40px;
+    position: relative;
+  }
+  .rightColumn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px; /* Match the width of the content */
+    height: 1px;
+    background-color: #333;
+  }
+  
+  /* 3. Stack and center the bottom bar content */
+  .bottomBar > .container {
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+  }
 }

@@ -70,7 +70,7 @@ const ServicesSection = () => {
       <div className={styles.container}>
         <span className={styles.tag}>Our Services</span>
         <h2 className={styles.title}>
-          Your One-Stop Printing Solution – <br /> Explore Our Services
+          Your One-Stop Printing Solution – Explore Our Services
         </h2>
         <p className={styles.description}>
           We offer a complete range of printing services, from business cards to

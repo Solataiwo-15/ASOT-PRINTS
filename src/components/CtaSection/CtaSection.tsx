@@ -7,7 +7,8 @@ const CtaSection = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>
-          Request Your Free Printing <br /> Sample!
+          Request Your Free Printing <br className={styles.desktopOnlyBr} />{" "}
+          Sample!
         </h2>
         <p className={styles.subtitle}>
           See, Touch, and Feel the Excellence of Asot.

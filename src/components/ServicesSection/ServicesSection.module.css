@@ -1,4 +1,4 @@
-/* src/components/ServicesSection/ServicesSection.module.css */
+/* src/components/ServicesSection/ServicesSection.module.css (Updated) */
 .section {
   padding: var(--space-xxl) 0;
   background-color: white;
@@ -8,7 +8,7 @@
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
-  text-align: center; /* Center all text content in the header */
+  text-align: center;
 }
 
 .tag {
@@ -23,13 +23,15 @@
   font-weight: 800;
   color: var(--text-dark-blue);
   line-height: 1.2;
-  margin-bottom: var(--space-lg);
+  margin: 0 auto var(--space-lg);
+  max-width: 800px;
+  text-align: center;
 }
 
 .description {
   color: var(--text-gray);
-  max-width: 700px; /* Constrain width for readability */
-  margin: 0 auto var(--space-xl); /* Center the block and add bottom margin */
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
   line-height: 1.7;
   font-size: 15px;
 }
@@ -38,5 +40,56 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
-  text-align: left; /* Reset text align for cards */
+  text-align: left;
+}
+
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+    overflow-x: hidden; /* Prevent horizontal scroll on the whole page */
+  }
+
+  .tag {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+  
+  .description {
+    font-size: 12px;
+  }
+
+  /* --- RE-USING THE HORIZONTAL SCROLL CONTAINER LOGIC --- */
+  .grid {
+    display: flex; /* Switch to flexbox for scrolling */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Snap horizontally */
+    
+    gap: 30px; /* Gap between cards */
+    
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* Bleed margin and padding trick */
+    margin: 0 calc(-1 * var(--container-padding));
+    padding: 20px var(--container-padding);
+  }
+
+  .grid::-webkit-scrollbar { display: none; }
+
+  /* Style each card inside the scroll container */
+  .grid > * {
+    scroll-snap-align: center; /* Snap each card to the center */
+    /* Each card is 85% of the screen width */
+    flex: 0 0 85%;
+  }
 }

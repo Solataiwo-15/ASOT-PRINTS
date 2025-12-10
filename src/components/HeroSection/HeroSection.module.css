@@ -1,9 +1,11 @@
-/* src/components/HeroSection/HeroSection.module.css */
+/* src/components/HeroSection/HeroSection.module.css (Updated) */
 
 .hero {
   background-color: var(--background-light);
   padding-top: 96px;
   overflow: hidden;
+  /* Add padding for the bottom on mobile */
+  padding-bottom: 60px;
 }
 
 .container {
@@ -11,14 +13,14 @@
   margin: 0 auto;
   padding: 0 var(--container-padding);
   display: flex;
-  align-items: flex-start; /* THIS IS THE FIX */
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-xl);
 }
 
 .heroText {
-  flex-basis: 48%; /* Give text part 45% of the width */
-  flex-shrink: 0; /* Prevent this column from shrinking */
+  flex-basis: 48%;
+  flex-shrink: 0;
 }
 
 .headline {
@@ -47,10 +49,63 @@
 }
 
 .heroImage {
-  flex-basis: 52%; /* Give image part 55% of the width */
+  flex-basis: 52%;
 }
 
 .heroImage img {
-  width: 100%; /* Make image responsive within its container */
+  width: 100%;
   height: auto;
+}
+
+
+/*
+ * =========================================
+ * === MEDIA QUERY FOR TABLET & MOBILE ===
+ * =========================================
+ */
+@media (max-width: 900px) {
+  .hero {
+    /* Reduce top padding on mobile */
+    padding-top: 60px;
+  }
+
+  /* 1. Stack the columns vertically */
+  .container {
+    flex-direction: column;
+    gap: 40px; /* Adjust gap for vertical stacking */
+  }
+
+  /* 2. Center-align all the text content */
+  .heroText {
+    text-align: center;
+    /* Reset flex properties to allow full width */
+    flex-basis: 100%;
+    /* Center the button and description block */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 3. Reduce font sizes for mobile */
+  .headline {
+    font-size: 60px; /* Reduced from 90px */
+    line-height: 1;
+  }
+
+  .subheadline {
+    font-size: 24px; /* Reduced from 38px */
+    margin-bottom: 24px;
+  }
+
+  .description {
+    margin-bottom: 24px;
+    font-size: 12px;
+  }
+
+  /* Ensure image takes full width */
+  .heroImage {
+    flex-basis: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

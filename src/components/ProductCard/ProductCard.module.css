@@ -1,4 +1,4 @@
-/* src/components/ProductCard/ProductCard.module.css */
+/* src/components/ProductCard/ProductCard.module.css (Updated) */
 .card {
   display: flex;
   flex-direction: column;
@@ -10,25 +10,30 @@
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  height: 250px; /* Give a fixed height to align cards */
+  height: 250px;
+  /* --- ADD A SUBTLE BORDER --- */
+  border: 1px solid #f0f0f0;
 }
 
 .imageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  /* --- THIS IS THE KEY CHANGE --- */
+  object-fit: contain; /* Changed from 'contain' to 'cover' to fill the space */
 }
 
 .discountBadge {
   position: absolute;
   top: 17px;
-  right: 16px;
+  /* --- Design shows badge on the LEFT --- */
+  /* left: 16px; */
+  right: 16px; /* Unset the right property */
   background-color: var(--primary-blue);
   color: white;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 700;
-  font-size: var(--font-size-small);
+  font-size: 12px;
 }
 
 .info {
@@ -41,4 +46,19 @@
 .title {
   font-weight: 700;
   color: var(--text-dark-blue);
+}
+
+/*
+ * =======================================
+ * === MEDIA QUERY FOR MOBILE STYLES ===
+ * =======================================
+ */
+@media (max-width: 768px) {
+    .imageContainer {
+        height: 200px; /* Slightly reduce height on mobile */
+    }
+
+    .title {
+        font-size: 0.9rem; /* 14.4px */
+    }
 }

@@ -1,4 +1,4 @@
-// src/components/ExcellenceSection/ExcellenceSection.tsx
+// src/components/ExcellenceSection/ExcellenceSection.tsx (REVERTED TO ORIGINAL)
 import FeatureItem from "../FeatureItem/FeatureItem";
 import styles from "./ExcellenceSection.module.css";
 import printerImage from "../../assets/excellence-printer.png";
@@ -7,7 +7,7 @@ const ExcellenceSection = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        {/* Left Column */}
+        {/* Left Column contains everything on the left */}
         <div className={styles.leftColumn}>
           <span className={styles.tag}>WHY CHOOSE US</span>
           <h2 className={styles.title}>
@@ -39,7 +39,7 @@ const ExcellenceSection = () => {
           </div>
         </div>
 
-        {/* Right Column */}
+        {/* Right Column is just the image */}
         <div className={styles.rightColumn}>
           <div className={styles.videoPlayer}>
             <img

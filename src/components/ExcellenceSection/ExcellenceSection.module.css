@@ -1,54 +1,81 @@
-/* src/components/ExcellenceSection/ExcellenceSection.module.css */
+/* src/components/ExcellenceSection/ExcellenceSection.module.css (FINAL CORRECTED) */
 .section {
-  background-color: #F0F8FF; /* Light Alice Blue background */
+  background-color: #F0F8FF;
   padding: var(--space-xxl) 0;
 }
-
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
   display: flex;
   align-items: center;
-  gap: 60px; /* Wider gap */
+  gap: 60px;
 }
 
-/* Left Column */
-.leftColumn {
-  flex-basis: 50%;
-}
+/* --- Columns for Desktop --- */
+.leftColumn { flex-basis: 50%; }
+.rightColumn { flex-basis: 50%; }
 
-.tag {
-  color: var(--primary-red);
-  font-weight: 700;
-  font-size: var(--font-size-small);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: var(--space-md); /* Space between tag and the content below */
-}
+.tag { color: var(--primary-red); font-weight: 700; font-size: var(--font-size-small); text-transform: uppercase; display: block; margin-bottom: var(--space-md); }
+.title { margin-bottom: var(--space-lg); font-size: 45px; font-weight: 900; line-height: 1.6; color: var(--text-dark-blue); }
+.description { color: var(--text-gray); line-height: 1.8; font-size: 16px; margin-bottom: var(--space-xl); }
+.featuresList { display: flex; flex-direction: column; gap: var(--space-xl); }
 
-.title {
-  margin-bottom: var(--space-lg);
-  font-size: 45px;
-  font-weight: 900;
-  line-height: 1.6;
-  color: var(--text-dark-blue);
-}
+/* .videoPlayer { position: relative; border-radius: 20px; overflow: hidden; background-color: var(--primary-blue); padding: 20px 20px 50px 20px; }
+.videoPlayer img { width: 100%; display: block; border-radius: 12px; } */
 
-.description {
-  color: var(--text-gray);
-  line-height: 1.8;
-  font-size: 16px;
-  margin-bottom: var(--space-xl);
-}
+/*
+ * ========================================================
+ * === MEDIA QUERY FOR MOBILE - CORRECTED LOGIC ===
+ * ========================================================
+ */
+@media (max-width: 768px) {
+  .section { padding: 60px 0; }
+  
+  /* Make the container a column and wrap its children */
+  .container {
+    flex-direction: column;
+    gap: 0px;
+  }
 
-.featuresList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
+  /* Make the columns full width */
+  .leftColumn{
+    flex-basis: 100%;
+    width: 100%;
+  }
 
-/* Right Column */
-.rightColumn {
-  flex-basis: 50%;
+  .rightColumn {
+    width: 85%;
+  }
+
+  /*
+   * THIS IS THE TRICK: On mobile, we make the leftColumn act like it's not there,
+   * allowing its children to become direct flex items of the container.
+  */
+  .leftColumn {
+    display: contents;
+  }
+  
+  /* Now we can order the children of the original leftColumn directly */
+  .tag, .title, .description {
+    order: 1; /* These text elements come first */
+    text-align: center;
+  }
+
+  .description {
+    margin-bottom: 28px;
+    text-align: left;
+    font-size: 12px;
+  }
+  .rightColumn {
+    order: 2; /* The image comes second */
+  }
+  .featuresList {
+    margin-top: 28px;
+    order: 3; /* The features come last */
+    gap: 21px;
+  }
+
+  /* Tidy up mobile text styles */
+  .title { font-size: 30px; line-height: 1.3; }
 }
