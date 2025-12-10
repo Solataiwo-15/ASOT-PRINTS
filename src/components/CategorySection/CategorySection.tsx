@@ -1,5 +1,3 @@
-// src/components/Category-Section/CategorySection.tsx
-import React from "react";
 import SparkleIcon from "../Icons/SparkleIcon";
 import styles from "./CategorySection.module.css";
 
